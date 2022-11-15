@@ -79,6 +79,23 @@ namespace LeaveManagement.Web.Areas.Identity.Pages.Account
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
+            
+            [Required]
+            [Display(Name = "First Name")]
+            public string Firstname { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            public string Lastname { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(Name = "Date Of Birth")]
+            public DateTime DateOfBirth { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(Name = "Date Joined")]
+            public DateTime DateJoined { get; set; }
+
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -117,6 +134,11 @@ namespace LeaveManagement.Web.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.FirstName = Input.Firstname;
+                user.Lastname = Input.Lastname;
+                user.DateJoined = Input.DateJoined;
+                user.DateOfBirth = Input.DateOfBirth;
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
