@@ -18,7 +18,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.DefaultDays)
             </th>
-            <th>
             <th></th>
         </tr>
     </thead>
@@ -49,7 +48,7 @@
 @section Scripts{
     <script>
         $(function(){
-
+            $('.table').DataTable();
             $('.deleteBtn').click(function (e) {
                 swal({
                     title: "Are you sure?",
