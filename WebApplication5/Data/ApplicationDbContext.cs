@@ -1,6 +1,7 @@
 ﻿using LeaveManagement.Web.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebApplication5.Configurations.Entities;
 
 namespace WebApplication5.Data
 {
@@ -9,6 +10,12 @@ namespace WebApplication5.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new RoleSeedConfiguration());
         }
 
         public DbSet<LeaveType> LeaveTypes { get; set; }
