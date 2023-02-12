@@ -4,15 +4,20 @@ namespace LeaveManagement.Web.Services
 {
     public class EmailSender : IEmailSender
     {
-        private string v1;
-        private int v2;
-        private string v3;
+        private string smtpServer;
+        private int smtpPort;
+        private string fromEmailAddress;
 
-        public EmailSender(string v1, int v2, string v3)
+        public EmailSender(string smtpServer, int smtpPort, string fromEmailAddress)
         {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
+            this.smtpServer = this.smtpServer;
+            this.smtpPort = smtpPort;
+            this.fromEmailAddress = fromEmailAddress;
+        }
+
+        public Task SendEmailAsync(string email, string subject, string htmlMessage)
+        {
+            throw new NotImplementedException();
         }
     }
 }
