@@ -11,7 +11,7 @@ namespace LeaveManagement.Web.Services
 
         public EmailSender(string smtpServer, int smtpPort, string fromEmailAddress)
         {
-            this.smtpServer = this.smtpServer;
+            this.smtpServer = smtpServer;
             this.smtpPort = smtpPort;
             this.fromEmailAddress = fromEmailAddress;
         }
