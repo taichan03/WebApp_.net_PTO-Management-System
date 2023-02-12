@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
+using System.Net.Mail;
 
 namespace LeaveManagement.Web.Services
 {
@@ -17,7 +18,20 @@ namespace LeaveManagement.Web.Services
 
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            throw new NotImplementedException();
+            var message = new MailMessage
+            {
+                From = new MailAddress(fromEmailAddress),
+                Subject = subject,
+                Body = htmlMessage,
+                IsBodyHtml= true
+            };
+
+            message.To.Add(new MailAddress(email));
+
+            using var client = new SmtpClient(smtpServer, smtpPort);
+            client.Send(message);
+            
+            return Task.CompletedTask;
         }
     }
 }
