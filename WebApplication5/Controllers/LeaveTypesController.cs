@@ -126,6 +126,12 @@ namespace LeaveManagement.Web.Controllers
             await leaveTypeRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AllocateLeave(int id)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }
