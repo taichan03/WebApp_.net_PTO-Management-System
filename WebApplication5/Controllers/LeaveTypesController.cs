@@ -15,7 +15,7 @@ using LeaveManagement.Web.Constants;
 
 namespace LeaveManagement.Web.Controllers
 {
-    [Authorize(Roles = Roles.Administrator)]
+    [Authorize(Roles = Roles.User)]
     public class LeaveTypesController : Controller
     {
         private readonly ILeaveTypeRepository leaveTypeRepository;
