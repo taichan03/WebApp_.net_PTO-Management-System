@@ -23,23 +23,20 @@ namespace LeaveManagement.Web.Repositories
             var employees = await userManager.GetUsersInRoleAsync(Roles.User);
             var period = DateTime.Now.Year;
             var leaveType = await leaveTypeRepository.GetAsync(leaveTypeId);
+            var allocations = new List<LeaveAllocation>();
 
             foreach(var employee in employees) 
             {
-                var allocation = new LeaveAllocation
+                allocations.Add(new LeaveAllocation
                 {
                     EmployeeId = employee.Id,
                     LeaveTypeId= leaveTypeId,
                     Period = period,
                     NumberOfDays = leaveType.DefaultDays
-                };
-                await AddAsync(allocation);
-                
-
+                });
             }
 
-
-            throw new NotImplementedException();
+            await AddRangeAsync(allocations);
         }
     }
 }

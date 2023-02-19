@@ -10,7 +10,7 @@ namespace LeaveManagement.Web.Contracts
         Task DeleteAsync(int id);
         Task UpdateAsync(T entity);
         Task<T> AddAsync(T entity);
-        Task<T> AddRangeAsync(List<T> entities);
+        Task AddRangeAsync(List<T> entities);
 
     }
 }
