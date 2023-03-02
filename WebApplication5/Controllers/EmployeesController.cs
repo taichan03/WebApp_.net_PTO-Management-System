@@ -1,4 +1,7 @@
-﻿using LeaveManagement.Web.Data;
+﻿using AutoMapper;
+using LeaveManagement.Web.Constants;
+using LeaveManagement.Web.Data;
+using LeaveManagement.Web.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,16 +10,20 @@ namespace LeaveManagement.Web.Controllers
 {
     public class EmployeesController : Controller
     {
-        public UserManager<Employee> UserManager { get; }
+        public readonly UserManager<Employee> userManager;
+        public readonly IMapper mapper;
 
-        public EmployeesController(UserManager<Employee> userManager)
+        public EmployeesController(UserManager<Employee> userManager, IMapper mapper)
         {
-            UserManager = userManager;
+            this.userManager = userManager;
+            this.mapper = mapper;
         }
         // GET: EmployeesController
-        public ActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            var employees = await userManager.GetUsersInRoleAsync(Roles.User);
+            var model = mapper.Map<List<EmployeeListVM>>(employees);
+            return View(model);
         }
 
         // GET: EmployeesController/Details/5
@@ -38,7 +45,7 @@ namespace LeaveManagement.Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -59,7 +66,7 @@ namespace LeaveManagement.Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -80,7 +87,7 @@ namespace LeaveManagement.Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
