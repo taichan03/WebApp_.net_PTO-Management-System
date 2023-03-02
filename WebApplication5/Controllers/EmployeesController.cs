@@ -19,7 +19,7 @@ namespace LeaveManagement.Web.Controllers
             this.mapper = mapper;
         }
         // GET: EmployeesController
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             var employees = await userManager.GetUsersInRoleAsync(Roles.User);
             var model = mapper.Map<List<EmployeeListVM>>(employees);
@@ -27,7 +27,7 @@ namespace LeaveManagement.Web.Controllers
         }
 
         // GET: EmployeesController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult ViewAllocations(int id)
         {
             return View();
         }
@@ -45,7 +45,7 @@ namespace LeaveManagement.Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(IndexAsync));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -66,7 +66,7 @@ namespace LeaveManagement.Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(IndexAsync));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -87,7 +87,7 @@ namespace LeaveManagement.Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(IndexAsync));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
