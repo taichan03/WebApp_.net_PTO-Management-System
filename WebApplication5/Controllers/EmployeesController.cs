@@ -26,9 +26,11 @@ namespace LeaveManagement.Web.Controllers
             return View(model);
         }
 
-        // GET: EmployeesController/Details/5
-        public ActionResult ViewAllocations(int id)
+        // GET: EmployeesController/Details/employeeId
+        public ActionResult ViewAllocations(string id)
         {
+
+
             return View();
         }
 
