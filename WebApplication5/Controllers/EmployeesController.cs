@@ -73,8 +73,10 @@ namespace LeaveManagement.Web.Controllers
             {
                 ModelState.AddModelError(string.Empty, "An Error Has Occurred. Please Try Again Later");
             }
+
             model.Employee = mapper.Map<EmployeeListVM>(await userManager.FindByIdAsync(model.EmployeeId));
             model.LeaveType = mapper.Map<LeaveTypeVM>(await leaveTypeRepository.GetAsync(model.LeaveTypeId));
+
             return View(model);
         }
     }
