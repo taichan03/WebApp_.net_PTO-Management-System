@@ -1,13 +1,17 @@
-﻿using LeaveManagement.Web.Data;
+﻿using LeaveManagement.Common.Models;
+using LeaveManagement.Web.Contracts;
+using LeaveManagement.Web.Data;
 using LeaveManagement.Web.Models;
 
-namespace LeaveManagement.Web.Contracts
+namespace LeaveManagement.Application.Contracts
 {
-    public interface ILeaveAllocationRepository :IGenericRepository<LeaveAllocation>
+    public interface ILeaveAllocationRepository : IGenericRepository<LeaveAllocation>
     {
         Task LeaveAllocation(int leaveTypeId);
         Task<bool> AllocationExists(string employeeId, int leaveTypeId, int period);
-        Task<EmployeeAllocationVM> GetEmployeeAllocation(string empolyeeId);
-
+        Task<EmployeeAllocationVM> GetEmployeeAllocations(string employeeId);
+        Task<LeaveAllocation?> GetEmployeeAllocation(string employeeId, int leaveTypeId);
+        Task<LeaveAllocationEditVM> GetEmployeeAllocation(int id);
+        Task<bool> UpdateEmployeeAllocation(LeaveAllocationEditVM model);
     }
 }
