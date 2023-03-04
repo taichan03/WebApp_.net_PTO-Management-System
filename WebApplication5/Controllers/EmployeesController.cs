@@ -46,7 +46,7 @@ namespace LeaveManagement.Web.Controllers
         // GET: EmployeesController/EditAllocation/5
         public async Task<ActionResult> EditAllocation(int id)
         {
-            var model = await leaveAllocationRepository.GetEmployeeAllocation(id);
+            LeaveAllocationEditVM model = await leaveAllocationRepository.GetEmployeeAllocation(id);
             if (model == null)
             {
                 return NotFound();

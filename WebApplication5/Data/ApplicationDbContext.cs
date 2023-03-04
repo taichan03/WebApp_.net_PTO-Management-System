@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WebApplication5.Configurations.Entities;
 using LeaveManagement.Web.Models;
+using LeaveManagement.Common.Models;
 
 namespace WebApplication5.Data
 {
@@ -21,6 +22,7 @@ namespace WebApplication5.Data
 
         public DbSet<LeaveType> LeaveTypes { get; set; }
         public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
+
 
 
 

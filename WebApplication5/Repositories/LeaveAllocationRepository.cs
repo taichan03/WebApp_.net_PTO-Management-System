@@ -76,7 +76,7 @@ namespace LeaveManagement.Application.Repositories
 
             var employee = await userManager.FindByIdAsync(allocation.EmployeeId);
 
-            var model = mapper.Map<LeaveAllocationEditVM>(allocation);
+            LeaveAllocationEditVM model = mapper.Map<LeaveAllocationEditVM>(allocation);
             model.Employee = mapper.Map<EmployeeListVM>(await userManager.FindByIdAsync(allocation.EmployeeId));
 
             return model;
