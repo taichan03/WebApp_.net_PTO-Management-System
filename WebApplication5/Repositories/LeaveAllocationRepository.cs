@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using WebApplication5.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using LeaveManagement.Web.Models;
 
 namespace LeaveManagement.Web.Repositories
 {
@@ -27,6 +28,12 @@ namespace LeaveManagement.Web.Repositories
             return await context.LeaveAllocations.AnyAsync(q => q.EmployeeId == employeeId
                                                                 && q.LeaveTypeId == leaveTypeId
                                                                 && q.Period == period);
+        }
+
+        public async Task<EmployeeAllocationVM> GetEmployeeAllocation(string employeeId)
+        {
+            var allocations = await context.LeaveAllocations.Where(q => q.EmployeeId.Equals(employeeId)).ToListAsync();
+
         }
 
         public async Task LeaveAllocation(int leaveTypeId)
