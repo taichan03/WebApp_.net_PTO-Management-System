@@ -109,8 +109,8 @@ namespace LeaveManagement.Application.Repositories
 
             foreach (var employee in employeesWithNewAllocations)
             {
-                await emailSender.SendEmailAsync(employee.Email, $"Leave Allocation Posted for {period}", $"Your {leaveType.Name} " +
-                    $"has been posted for the period of {period}. You have been given {leaveType.DefaultDays}.");
+                //await emailSender.SendEmailAsync(employee.Email, $"Leave Allocation Posted for {period}", $"Your {leaveType.Name} " +
+                //    $"has been posted for the period of {period}. You have been given {leaveType.DefaultDays}.");
             }
         }
 
