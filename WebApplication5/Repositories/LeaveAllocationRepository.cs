@@ -127,8 +127,8 @@ namespace LeaveManagement.Application.Repositories
 
             var user = await userManager.FindByIdAsync(leaveAllocation.EmployeeId);
 
-            await emailSender.SendEmailAsync(user.Email, $"Leave Allocation Updated for {leaveAllocation.Period}",
-                "Please review your leave allocations.");
+            //await emailSender.SendEmailAsync(user.Email, $"Leave Allocation Updated for {leaveAllocation.Period}",
+            //    "Please review your leave allocations.");
 
             return true;
         }
