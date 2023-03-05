@@ -15,7 +15,7 @@ using LeaveManagement.Application.Contracts;
 
 namespace LeaveManagement.Application.Repositories
 {
-    public class LeaveAllocationRepository : GenericRepostiory<LeaveAllocation>, ILeaveAllocationRepository
+    public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>, ILeaveAllocationRepository
     {
         private readonly ApplicationDbContext context;
         private readonly UserManager<Employee> userManager;

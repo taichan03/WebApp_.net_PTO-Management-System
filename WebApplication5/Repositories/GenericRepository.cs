@@ -4,11 +4,11 @@ using WebApplication5.Data;
 
 namespace LeaveManagement.Web.Repositories
 {
-    public class GenericRepostiory<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly ApplicationDbContext context;
 
-        public GenericRepostiory(ApplicationDbContext context)
+        public GenericRepository(ApplicationDbContext context)
         {
             this.context = context;
         }
