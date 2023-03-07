@@ -94,7 +94,7 @@ namespace LeaveManagement.Web.Repositories
                     return false;
                 }
 
-                var leaveRequest = mapper.Map<LeaveRequest>(model);
+                LeaveRequest leaveRequest = mapper.Map<LeaveRequest>(model);
                 leaveRequest.DateRequested = DateTime.Now;
                 leaveRequest.RequestingEmployeeId = user.Id;
 
