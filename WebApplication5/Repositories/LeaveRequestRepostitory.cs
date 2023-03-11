@@ -133,21 +133,21 @@ namespace LeaveManagement.Web.Repositories
                     .ToListAsync();
             }
 
-            //public async Task<LeaveRequestVM?> GetLeaveRequestAsync(int? id)
-            //{
-            //    var leaveRequest = await context.LeaveRequests
-            //        .Include(q => q.LeaveType)
-            //        .FirstOrDefaultAsync(q => q.Id == id);
+            public async Task<LeaveRequestVM?> GetLeaveRequestAsync(int? id)
+            {
+                var leaveRequest = await context.LeaveRequests
+                    .Include(q => q.LeaveType)
+                    .FirstOrDefaultAsync(q => q.Id == id);
 
-            //    if (leaveRequest == null)
-            //    {
-            //        return null;
-            //    }
+                if (leaveRequest == null)
+                {
+                    return null;
+                }
 
-            //    var model = mapper.Map<LeaveRequestVM>(leaveRequest);
-            //    model.Employee = mapper.Map<EmployeeListVM>(await userManager.FindByIdAsync(leaveRequest?.RequestingEmployeeId));
-            //    return model;
-            //}
+                var model = mapper.Map<LeaveRequestVM>(leaveRequest);
+                model.Employee = mapper.Map<EmployeeListVM>(await userManager.FindByIdAsync(leaveRequest?.RequestingEmployeeId));
+                return model;
+            }
 
             public async Task<EmployeeLeaveRequestViewVM> GetMyLeaveDetails()
             {
@@ -159,6 +159,6 @@ namespace LeaveManagement.Web.Repositories
 
                 return model;
             }
-    }
+        }
 
 }
