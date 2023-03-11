@@ -56,6 +56,22 @@ namespace LeaveManagement.Web.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ApproveRequest(int id, bool approved)
+        {
+            try
+            {
+                await leaveRequestRepository.ChangeApprovalStatus(id, approved);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
         // GET: LeaveRequests/Create
         public async Task<IActionResult> Create()
         {
