@@ -11,6 +11,7 @@ using LeaveManagement.Web.Models;
 using LeaveManagement.Web.Repositories;
 using LeaveManagement.Web.Contracts;
 using Microsoft.AspNetCore.Authorization;
+using LeaveManagement.Web.Constants;
 
 namespace LeaveManagement.Web.Controllers
 {
@@ -30,6 +31,7 @@ namespace LeaveManagement.Web.Controllers
 
         }
 
+        [Authorize(Roles = Roles.Administrator)]
         // GET: LeaveRequests
         public async Task<IActionResult> Index()
         {
