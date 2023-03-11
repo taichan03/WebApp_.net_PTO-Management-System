@@ -16,7 +16,7 @@ using LeaveManagement.Application.Contracts;
 
 namespace LeaveManagement.Web.Controllers
 {
-    [Authorize(Roles = Roles.User)]
+    [Authorize(Roles = Roles.Administrator)]
     public class LeaveTypesController : Controller
     {
         private readonly ILeaveTypeRepository leaveTypeRepository;

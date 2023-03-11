@@ -71,8 +71,8 @@ namespace LeaveManagement.Web.Repositories
                 var user = await userManager.FindByIdAsync(leaveRequest.RequestingEmployeeId);
                 var approvalStatus = approved ? "Approved" : "Declined";
 
-                await emailSender.SendEmailAsync(user.Email, $"Leave Request {approvalStatus}", $"Your leave request from " +
-                    $"{leaveRequest.StartDate} to {leaveRequest.EndDate} has been {approvalStatus}");
+                //await emailSender.SendEmailAsync(user.Email, $"Leave Request {approvalStatus}", $"Your leave request from " +
+                //    $"{leaveRequest.StartDate} to {leaveRequest.EndDate} has been {approvalStatus}");
 
             }
 
