@@ -7,10 +7,10 @@ namespace LeaveManagement.Web.Models
         public string Id { get; set; }
 
         [Display(Name = "First Name")]
-        public string Firstname { get; set; }
+        public string FirstName { get; set; }
 
         [Display(Name = "Last Name")]
-        public string Lastname { get; set; }
+        public string LastName { get; set; }
 
         [Display(Name = "Date Joined")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
