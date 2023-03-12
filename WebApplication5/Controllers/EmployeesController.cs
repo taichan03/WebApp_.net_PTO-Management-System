@@ -31,7 +31,7 @@ namespace LeaveManagement.Web.Controllers
         // GET: EmployeesController
         public async Task<IActionResult> Index()
         {
-            var employees = await userManager.GetUsersInRoleAsync(Roles.User);
+            var employees = userManager.Users;
             var model = mapper.Map<List<EmployeeListVM>>(employees);
             return View(model);
         }
