@@ -106,6 +106,7 @@ namespace LeaveManagement.Web.Repositories
                 return true;
             }
 
+
             public async Task<AdminLeaveRequestViewVM> GetAdminLeaveRequestList()
             {
                 var leaveRequests = await context.LeaveRequests.Include(q => q.LeaveType).ToListAsync();
