@@ -76,6 +76,7 @@ namespace LeaveManagement.Web.Repositories
 
             }
 
+
             public async Task<bool> CreateLeaveRequest(LeaveRequestCreateVM model)
             {
                 var user = await userManager.GetUserAsync(httpContextAccessor?.HttpContext?.User);
