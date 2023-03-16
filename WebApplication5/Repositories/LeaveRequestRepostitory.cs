@@ -38,8 +38,6 @@ namespace LeaveManagement.Web.Repositories
                 this.emailSender = emailSender;
                 this.userManager = userManager;
             }
-
-
             public async Task CancelLeaveRequest(int leaveRequestId)
             {
                 var leaveRequest = await GetAsync(leaveRequestId);
