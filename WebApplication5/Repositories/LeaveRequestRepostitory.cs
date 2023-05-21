@@ -88,6 +88,7 @@ namespace LeaveManagement.Web.Repositories
                     return false;
                 }
 
+
                 int daysRequested = (int)(model.EndDate.Value - model.StartDate.Value).TotalDays;
 
                 if (daysRequested > leaveAllocation.NumberOfDays)
